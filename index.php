@@ -119,6 +119,6 @@ else
 ?></table><?
 }
 ?>
-	<footer>Built on <a href="fbt22.rar">flippy's bittorrent tracker v2.2</a> (GPL)</footer>
+	<footer>Built on <a href="fbt22.zip">flippy's bittorrent tracker v2.2</a> (GPL)</footer>
 </body>
 </html>
