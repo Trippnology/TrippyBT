@@ -20,7 +20,7 @@ function getstat($file)
 		else
 			$incomplete++;
 	}
-	return '<tr><td><a href="./?info_hash=' . $file . '">' . $file . '</a></td><td class="seeds">' . number_format($complete) . '</td><td class="peers">' . number_format($incomplete) . '</td></tr>';
+	return '<tr><td><a href="./?info_hash=' . $file . '">' . $file . '</a></td><td>' . number_format($complete) . '</td><td>' . number_format($incomplete) . '</td></tr>';
 }
 
 
@@ -56,6 +56,7 @@ function getstat($file)
 		}
 		tr { padding: 0.5em; }
 		th { background-color: #eae7e2; }
+		.torrentlink, .magnetlink { text-align: center; }
 		.status-seed { color: #008000; }
 		.status-peer { color: #eae7e2; }
 		footer { text-align: center; }
@@ -75,8 +76,15 @@ if($info_hash && strlen($info_hash) == 40 && file_exists($info_hash))
 {
 	$torrent_name = $info_hash . '.torrent';
 	if(file_exists($torrent_name))
-		echo '<table><tr><td><a href="' . $torrent_name . '">' . $torrent_name . '</a></td></tr></table>';
-	echo '<table><tr><th>ip</th><th>status</th><th>port</th><th>last action</th></tr>';
+	{
+		echo '<p class="torrentlink">This torrent is available for download:<br><a href="' . $torrent_name . '">' . $torrent_name . '</a></p>';
+		echo '<p class="magnetlink">Magnet link:<br><a href="magnet:?xt=urn:btih:' . $info_hash . '">magnet:?xt=urn:btih:' . $info_hash . '</a></p>';
+	}
+	else
+	{
+		echo '<p class="magnetlink">Magnet link:<br><a href="magnet:?xt=urn:btih:' . $info_hash . '">magnet:?xt=urn:btih:' . $info_hash . '</a></p>';
+	}
+	echo '<table><tr><th>Client</th><th>Status</th><th>Port</th><th>Last action</th></tr>';
 	$handle = fopen($info_hash, "rb");
 	flock($handle, LOCK_SH);
 	$no_peers = intval(filesize($info_hash) / 7);
@@ -96,7 +104,7 @@ if($info_hash && strlen($info_hash) == 40 && file_exists($info_hash))
 		}
 		else
 		{
-			$what = '<span class="status-Peer">Peer</span>';
+			$what = '<span class="status-peer">Peer</span>';
 			$t_time = $time - $t_peer_seed;
 			
 		}
