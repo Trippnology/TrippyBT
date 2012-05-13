@@ -1,7 +1,8 @@
-# Trippy's Bittorrent Tracker v1.1 (GPL)
+# Trippy's Bittorrent Tracker v1.2 (GPL)
 
 A version of FBT v2.2 that has been updated to use HTML5.  
-The announce URL is now also displayed at the top of all pages.  
+The announce URL is now displayed at the top of all pages.  
+Torrent info page now includes magnet links.  
 The original source is included in fbt22.zip  
 
 ## Original README
