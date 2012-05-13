@@ -78,12 +78,8 @@ if($info_hash && strlen($info_hash) == 40 && file_exists($info_hash))
 	if(file_exists($torrent_name))
 	{
 		echo '<p class="torrentlink">This torrent is available for download:<br><a href="' . $torrent_name . '">' . $torrent_name . '</a></p>';
-		echo '<p class="magnetlink">Magnet link:<br><a href="magnet:?xt=urn:btih:' . $info_hash . '">magnet:?xt=urn:btih:' . $info_hash . '</a></p>';
 	}
-	else
-	{
-		echo '<p class="magnetlink">Magnet link:<br><a href="magnet:?xt=urn:btih:' . $info_hash . '">magnet:?xt=urn:btih:' . $info_hash . '</a></p>';
-	}
+	echo '<p class="magnetlink"><img src="data:image/gif;base64,R0lGODlhDAAMALMPAOXl5ewvErW1tebm5oocDkVFRePj47a2ts0WAOTk5MwVAIkcDesuEs0VAEZGRv///yH5BAEAAA8ALAAAAAAMAAwAAARB8MnnqpuzroZYzQvSNMroUeFIjornbK1mVkRzUgQSyPfbFi/dBRdzCAyJoTFhcBQOiYHyAABUDsiCxAFNWj6UbwQAOw%3D%3D" class="icon-magnet" alt="Magnet icon"> <a href="magnet:?xt=urn:btih:' . $info_hash . '">Magnet Link</a></p>';
 	echo '<table><tr><th>Client</th><th>Status</th><th>Port</th><th>Last action</th></tr>';
 	$handle = fopen($info_hash, "rb");
 	flock($handle, LOCK_SH);
