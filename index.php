@@ -127,6 +127,6 @@ else
 ?></table><?
 }
 ?>
-	<footer>Built on <a href="fbt22.zip">flippy's bittorrent tracker v2.2</a> (GPL)</footer>
+	<footer>Powered by <a href="https://github.com/Trippnology/TrippyBT">Trippy's Bittorrent Tracker</a> (GPL)</footer>
 </body>
 </html>
