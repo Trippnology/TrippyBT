@@ -28,3 +28,28 @@ Readme:
   are for torrent-clients and thus are 20 byte binary hashes.
 
 Have fun!
+
+### README from http://uaequals42.tripod.com/Tracker/readme.html
+FBT2 - As far as I know FBT (Flippy's BitTorrent Tracker) is the first BitTorrent PHP tracker that does NOT use MySQL. It users binary files to store its data. Also it requires the new 'compact' tracker protocol to save on bandwidth and gain valuable performance. Don't worry most of the recent clients fully support it.
+
+**To Download:**
+http://www.torrentz.com/FBT2.rar
+
+**To Setup:** 
+*   Get a PHP enabled web server. PHP 4.0.0 and up recommended
+*   Upload announce.php, scrape.php and index.php to a **writable** directory
+*   You are ready to go
+
+**To restrict torrents used on your tracker:**
+*   In main directory make a file called 'allow'
+*   Add your torrent's hash (HEX format) to it, each on a new line if you wish
+
+**FAQ:** 
+*   Why do I get errors? 
+    Chmod 0777 the directory that tracker's files are in.
+*   Why binary? 
+    Binary files are smaller and it takes less time to read them to the memory. Remember in this case hard drive's I/O speed is the main bottleneck.
+*   How much can it take? 
+    I've seen 3Mbit/s but web server was almost useless, however it should work smooth with 3000-5000 peers. For more peers additional tuning might be required (such as RAM Disk).
+*   How do I contact the author? 
+    Come to #torrentz at EFnet and ask for Flippy
