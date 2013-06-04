@@ -56,7 +56,7 @@ function getstat($file)
 		}
 		tr { padding: 0.5em; }
 		th { background-color: #eae7e2; }
-		.torrentlink, .magnetlink { text-align: center; }
+		.torrentlink, .cachedtorrent, .magnetlink { text-align: center; }
 		.status-seed { color: #008000; }
 		.status-peer { color: #eae7e2; }
 		footer { text-align: center; }
@@ -78,6 +78,8 @@ if($info_hash && strlen($info_hash) == 40 && file_exists($info_hash))
 	if(file_exists($torrent_name))
 	{
 		echo '<p class="torrentlink">This torrent is available for download:<br><a href="' . $torrent_name . '">' . $torrent_name . '</a></p>';
+	} else {
+		echo '<p class="cachedtorrent">This torrent may be available from <a href="http://torrage.com/torrent/' . $info_hash . '.torrent">Torrage</a> or <a href="http://torcache.net/torrent/' . $info_hash . '.torrent">Torcache</a></p>';		
 	}
 	echo '<p class="magnetlink"><img src="data:image/gif;base64,R0lGODlhDAAMALMPAOXl5ewvErW1tebm5oocDkVFRePj47a2ts0WAOTk5MwVAIkcDesuEs0VAEZGRv///yH5BAEAAA8ALAAAAAAMAAwAAARB8MnnqpuzroZYzQvSNMroUeFIjornbK1mVkRzUgQSyPfbFi/dBRdzCAyJoTFhcBQOiYHyAABUDsiCxAFNWj6UbwQAOw%3D%3D" class="icon-magnet" alt="Magnet icon"> <a href="magnet:?xt=urn:btih:' . $info_hash . '&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Ftracker.ccc.de%3A80">Magnet Link</a></p>';
 	echo '<table><tr><th>Client</th><th>Status</th><th>Port</th><th>Last action</th></tr>';
