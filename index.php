@@ -23,7 +23,8 @@ function getstat($file)
 	return '<tr><td><a href="./?info_hash=' . $file . '">' . $file . '</a></td><td>' . number_format($complete) . '</td><td>' . number_format($incomplete) . '</td></tr>';
 }
 
-
+// Discourage search engines from indexing your tracker
+header('X-Robots-Tag: noindex, follow');
 ?>
 <!doctype html>
 <html>
